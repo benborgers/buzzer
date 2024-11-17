@@ -17,7 +17,7 @@ class QuestionDashboard extends Controller
         $total_questions = $questions->count();
         $next_question_id = $questions->get($index + 1)?->id;
 
-        $incorrect_answers = $question->answers()->where('is_correct', false)->latest()->get();
+        $incorrect_answers = $question->answers()->where('is_correct', false)->latest()->limit(50)->get();
 
         $team_to_correct_answer_count = $question->answers()->where('is_correct', true)->groupBy('team_name')->selectRaw('team_name, COUNT(*) as count')->get()->keyBy('team_name')->map(fn ($row) => (int) $row->count);
 
