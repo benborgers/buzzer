@@ -38,8 +38,28 @@ class Question extends Model
         return $isCorrect;
     }
 
+    public function scopeInOrder($query)
+    {
+        return $query->orderBy('order');
+    }
+
+    public function game()
+    {
+        return $this->belongsTo(Game::class);
+    }
+
     public function answers()
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function wins()
+    {
+        return $this->hasMany(Win::class);
+    }
+
+    public function firstWin()
+    {
+        return $this->wins()->oldest()->first();
     }
 }

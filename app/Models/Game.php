@@ -10,4 +10,9 @@ class Game extends Model
     {
         return $this->hasOne(Question::class, 'id', 'current_question_id');
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

@@ -15,7 +15,20 @@ class CreateAnswer extends Controller
             'team_name' => 'required|string|max:255',
         ]);
 
-        $correct = $game->currentQuestion->guess($body);
+        $question = $game->currentQuestion;
+
+        $correct = $question->guess($body);
+
+        $correctAnswersCountForTeam = $question->answers()
+            ->where('is_correct', true)
+            ->where('team_name', $body['team_name'])
+            ->count();
+
+        if ($correctAnswersCountForTeam === CORRECT_ANSWERS_TO_WIN) {
+            $question->wins()->create([
+                'team_name' => $body['team_name'],
+            ]);
+        }
 
         return response()->json([
             'is_correct' => $correct,

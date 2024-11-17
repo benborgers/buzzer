@@ -12,4 +12,5 @@ export type PageProps<
     user: User;
   };
   csrfToken: string;
+  CORRECT_ANSWERS_TO_WIN: number;
 };

@@ -35,6 +35,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'csrfToken' => csrf_token(),
+            'CORRECT_ANSWERS_TO_WIN' => CORRECT_ANSWERS_TO_WIN,
         ];
     }
 }

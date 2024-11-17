@@ -74,7 +74,7 @@ export default function PlayPage(props: PageProps) {
             initial={{ height: 0 }}
             animate={{ height: '100vh' }}
             exit={{ height: 0 }}
-            className="absolute inset-0 z-10 overflow-hidden bg-gray-200"
+            className="absolute inset-0 z-10 overflow-hidden bg-zinc-200"
           >
             <div className="p-4 pt-6">
               <Heading>Buzzer</Heading>
@@ -121,9 +121,9 @@ export default function PlayPage(props: PageProps) {
       <div className="absolute inset-0">
         <button
           onClick={() => setProfileOpen(true)}
-          className="w-full bg-gray-200 p-2 text-center"
+          className="w-full bg-zinc-200 p-2 text-center"
         >
-          <p className="font-semibold text-gray-900">
+          <p className="font-semibold text-zinc-900">
             {name} — {team}
           </p>
         </button>
