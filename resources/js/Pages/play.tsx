@@ -65,6 +65,9 @@ export default function PlayPage(props: PageProps<Props>) {
         if (json.is_correct) {
           setCorrect([guess, ...correct]);
         }
+      })
+      .catch((err) => {
+        alert('Error submitting guess: ' + err.message);
       });
 
     setGuess('');
