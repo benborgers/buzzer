@@ -94,6 +94,7 @@ export default function PlayPage(props: PageProps<Props>) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
+                    autoFocus
                   />
                 </Field>
                 <Field>
