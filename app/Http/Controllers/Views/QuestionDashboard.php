@@ -11,7 +11,11 @@ class QuestionDashboard extends Controller
 {
     public function __invoke(Question $question)
     {
-        $questions = $question->game->questions()->inOrder()->get();
+        $game = $question->game;
+
+        $game->update(['current_question_id' => $question->id]);
+
+        $questions = $game->questions()->inOrder()->get();
 
         $index = $questions->search(fn ($q) => $q->id === $question->id);
         $total_questions = $questions->count();
