@@ -12,7 +12,11 @@ import { useEffect, useState } from 'react';
 const NAME_LOCAL_STORAGE_KEY = 'buzzer--user_name';
 const TEAM_LOCAL_STORAGE_KEY = 'buzzer--team_name';
 
-export default function PlayPage(props: PageProps) {
+type Props = {
+  game_id: number;
+};
+
+export default function PlayPage(props: PageProps<Props>) {
   const [profileOpen, setProfileOpen] = useState(false);
 
   const [name, setName] = useState('');
@@ -48,7 +52,7 @@ export default function PlayPage(props: PageProps) {
 
     setGuesses([guess, ...guesses]);
 
-    fetch(route('answers.create', 1), {
+    fetch(route('answers.create', props.game_id), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
