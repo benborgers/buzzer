@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class QuestionDashboard extends Controller

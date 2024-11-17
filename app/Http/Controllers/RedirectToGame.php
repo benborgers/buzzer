@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
-use Illuminate\Http\Request;
 
 class RedirectToGame extends Controller
 {
